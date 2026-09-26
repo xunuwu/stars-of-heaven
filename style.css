@@ -7,26 +7,80 @@ html, body {
 .layout {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 100px auto;
     grid-template-areas:
         "header"
         "content";
 }
 
 header {
+    font-size: 20px;
+    font-family: Helvetica;
     display: grid;
+    align-items: center;
     grid-area: header;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
+    background-color: blue;
+}
+
+header > h1 {
+    margin: 0;
 }
 
 main {
     grid-area: content;
+    background-color: red;
+}
+
+nav {
+    height: 100%;
 }
 
 nav > ul {
+    height: 100%;
+    margin: 0;
+    padding: 0;   
+    background-color: white;
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
+    text-align: center;
+}
+
+nav > ul > li {
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 100px; /* quite ugly, must be same as navbar height!! */
+}
+
+nav > ul > li > a {
+    height: 100%;
+    width: 100%;
+}
+
+nav > ul > li:not(:has(>a)) {
+    background-color: orange;
+}
+
+nav > ul > li:has(>a):hover {
+    background-color: yellow;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+
+.members > div:nth-child(odd) {
+    background-color: violet;
+}
+
+.members > div > img {
+    width: 100%;
+    height: auto;
 }
