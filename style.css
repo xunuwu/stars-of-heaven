@@ -1,7 +1,24 @@
+:root {
+   --bg: rgb(5, 5, 5);
+   --text: rgb(200, 200, 200);
+}
+
+@font-face {
+   font-family: CourierPolski;
+   src: url(assets/courier_polski_1941/zai_CourierPolski1941.woff2);
+}
+
+@font-face {
+   font-family: CourierPolski_i;
+   src: url(assets/courier_polski_1941/zai_CourierPolski1941_i.woff2);
+}
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 .layout {
@@ -21,7 +38,6 @@ header {
     grid-area: header;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
-    background-color: blue;
 }
 
 header > h1 {
@@ -30,7 +46,6 @@ header > h1 {
 
 main {
     grid-area: content;
-    background-color: red;
 }
 
 nav {
@@ -41,7 +56,6 @@ nav > ul {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: white;
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -54,33 +68,28 @@ nav > ul > li {
     width: 100%;
     white-space: nowrap;
     line-height: 100px; /* quite ugly, must be same as navbar height!! */
+    margin-inline: 10px;
 }
 
 nav > ul > li > a {
     height: 100%;
     width: 100%;
-}
-
-nav > ul > li:not(:has(>a)) {
-    background-color: orange;
-}
-
-nav > ul > li:has(>a):hover {
-    background-color: yellow;
+    text-decoration: none;
+    color: orangered;
 }
 
 .members {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
     grid-template-rows: 1fr;
 }
 
 
-.members > div:nth-child(odd) {
-    background-color: violet;
-}
-
 .members > div > img {
     width: 100%;
     height: auto;
+}
+
+.band-name-stylized {
+   font-family: CourierPolski_i;
 }
