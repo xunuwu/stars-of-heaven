@@ -8,52 +8,49 @@
   <body>
     <div class="layout">
       <header>
-        <h1>music</h1>
+        <h1 class="band-name-stylized"><a href="/">Stars of Heaven</a></h1>
         <nav>
           <ul>
             <li>
-              <a href="/index.html"><div>Stars of Heaven</div></a>
+              <a class="nav-link" href="/index.html"><div>Stars of Heaven</div></a>
             </li>
             <li>
-              <a href="/members.html"><div>Members</div></a>
+              <a class="nav-link" href="/members.html"><div>Members</div></a>
             </li>
-            <li>Music</li>
+            <li>
+              <a class="nav-link current" href="/music.html"><div>Music</div></a></li>
           </ul>
         </nav>
       </header>
       <main>
-        <table>
-          <tr>
-            <th>Song</th>
-            <th>Year</th>
-            <th>Album</th>
-          </tr>
-          <tr>
-            <td>s1</td>
-            <td>y1</td>
-            <td>a1</td>
-          </tr>
-          <tr>
-            <td>s2</td>
-            <td>y2</td>
-            <td>a2</td>
-          </tr>
-          <tr>
-            <td>s3</td>
-            <td>y3</td>
-            <td>a3</td>
-          </tr>
-          <tr>
-            <td>s4</td>
-            <td>y4</td>
-            <td>a4</td>
-          </tr>
-          <tr>
-            <td>s5</td>
-            <td>y5</td>
-            <td>a5</td>
-          </tr>
-        </table>
+        <fieldset>
+          <ul class="album-list">
+            <li>
+              <input type="checkbox" name="albums" id="animals"/>
+              <label for="animals">
+                animals
+              </label>
+              <ol class="song-list">
+                <li>snake</li>
+                <li>cow</li>
+                <li>sheep</li>
+              </ol>
+            </li>
+            <li>
+              <input type="checkbox" name="albums" id="colours"/>
+              <label for="colours">
+                colours
+              </label>
+              <ol class="song-list">
+                <li>blue</li>
+                <li>green</li>
+                <li>red</li>
+                <li>orange</li>
+                <li>yellow</li>
+              </ol>
+            </li>
+          </ul>
+        </fieldset>
       </main>
     </div>
   </body>
