@@ -142,19 +142,20 @@ input {
     margin: 5px;
     padding: 20px;
     margin-top: 0px;
-    background-color: blue;
+    background-color: rgb(25, 25, 25);
 }
 
 .song-list {
     list-style: decimal-leading-zero;
+    list-style-position: inside;
+    margin-bottom: 30px;
 }
 
 .song-list > li {
     margin-inline: 5px;
     margin-block: 5px;
     padding: 10px;
-    background-color: violet;
-    /* list-style: none; */
+    background-color: rgb(20, 20, 20);
 }
 
 .album-list > div {
