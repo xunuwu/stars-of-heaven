@@ -27,10 +27,11 @@ html, body {
     margin-left: 10vw;
     margin-right: 10vw;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px auto;
+    grid-template-rows: 100px auto 250px;
     grid-template-areas:
         "header"
-        "content";
+        "content"
+        "footer";
 }
 
 header {
@@ -127,43 +128,55 @@ input {
     display: none;
 }
 
-.album-list {
-    display: grid;
-    grid-auto-rows: auto;
-}
-
 .album-label {
     margin: 5px;
     padding: 20px;
     margin-top: 0px;
     background-color: rgb(25, 25, 25);
+    grid-area: label;
 }
 
 .song-list {
-    list-style: decimal-leading-zero;
+    list-style-type: decimal-leading-zero;
     list-style-position: inside;
     margin-bottom: 30px;
+    grid-area: list;
 }
 
 .song-list > li {
     margin-inline: 5px;
     margin-block: 5px;
     padding: 10px;
-    background-color: rgb(20, 20, 20);
 }
 
-.album-list > div {
+.album-list > li {
     display: grid;
     grid-template-columns: 250px 2fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "cover label"
+      "cover list";
 }
 
 .cover-art {
-    background-color: brown;
-    width: 250px;
-    height: 250px;
+    width: calc(100% - 10px);
+    height: auto;
     margin-bottom: 50px;
+    margin-right: 10px;
+    grid-area: cover;
 }
 
-.album-list * li:not(:has(* input:checked)) .song-list {
+.album-list li:not(:has(input:checked)) .song-list {
     display: none;
+}
+
+footer {
+   grid-area: footer;
+   align-content: end;
+   text-align: center;
+}
+
+footer a {
+   /* text-decoration: none; */
+   color: rgb(100, 100, 100);
 }

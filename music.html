@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>music</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="layout">
@@ -17,12 +17,12 @@
               </a>
             </li>
             <li>
-              <a class="nav-link" href="/members.html">
+              <a class="nav-link" href="/members">
                 <div>Members</div>
               </a>
             </li>
             <li>
-              <a class="nav-link current" href="/music.html">
+              <a class="nav-link current" href="/music">
                 <div>Music</div>
               </a>
             </li>
@@ -31,43 +31,44 @@
       </header>
       <main>
         <ul class="album-list">
-          <div>
-            <div class="cover-art"></div>
-            <li>
-              <label>
-                <input type="checkbox"/>
-                <div class="album-label">animals</div>
-              </label>
-              <ol class="song-list">
-                <li>snake</li>
-                <li>cow</li>
-                <li>sheep</li>
-                <li>bull</li>
-                <li>dog</li>
-                <li>cat</li>
-                <li>swan</li>
-              </ol>
-            </li>
-          </div>
-          <div>
-            <div class="cover-art"></div>
-            <li>
-              <label>
-                <input type="checkbox"/>
-                <div class="album-label">colours</div>
-              </label>
-              <ol class="song-list">
-                <li>blue</li>
-                <li>green</li>
-                <li>red</li>
-                <li>orange</li>
-                <li>yellow</li>
-                <li>violet</li>
-              </ol>
-            </li>
-          </div>
+          <li>
+            <img class="cover-art" src="/assets/covers/lamb.avif" alt="cover art for the album animals, photo of a sheep">
+            <!-- TODO add hover effect for the label!! -->
+            <label class="album-label">
+              <input type="checkbox" />
+              animals
+            </label>
+
+            <ol class="song-list">
+              <li>snake</li>
+              <li>cow</li>
+              <li>sheep</li>
+              <li>bull</li>
+              <li>dog</li>
+              <li>cat</li>
+              <li>swan</li>
+            </ol>
+          </li>
+          <li>
+            <img class="cover-art" src="/assets/covers/colours.avif" alt="cover art for the album colours, photo of colouring pencils">
+            <label class="album-label">
+              <input type="checkbox" />
+              colours
+            </label>
+            <ol class="song-list">
+              <li>blue</li>
+              <li>green</li>
+              <li>red</li>
+              <li>orange</li>
+              <li>yellow</li>
+              <li>violet</li>
+            </ol>
+          </li>
         </ul>
       </main>
+      <footer>
+        <a href="/licenses">licenses</a>
+      </footer>
     </div>
   </body>
 </html>
