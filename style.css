@@ -1,6 +1,23 @@
 :root {
-   --bg: rgb(5, 5, 5);
-   --text: rgb(200, 200, 200);
+    --bg: rgb(5, 5, 5);
+    --text: rgb(200, 200, 200);
+    --table-border: rgb(150, 150, 150);
+    --bg-contrast: rgb(35, 35, 35);
+    --footer-link: rgb(100, 100, 100);
+    --tab: rgb(255, 100, 0);
+    --tab-hover: rgb(255, 150, 0);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: rgb(240, 240, 240);
+        --text: rgb(15, 15, 15);
+        --table-border: rgb(30, 30, 30);
+        --bg-contrast: rgb(220, 220, 220);
+        --footer-link: rgb(25, 25, 100);
+        --tab: rgb(255, 100, 0);
+        --tab-hover: rgb(255, 160, 0);
+    }
 }
 
 @font-face {
@@ -8,48 +25,46 @@
    src: url(assets/courier_polski_1941/zai_CourierPolski1941_i.woff2);
 }
 
+
+
+/*
+ * ALL PAGES
+ */
+
 html, body {
+    color: var(--text);
+    background-color: var(--bg);
+    font-family: Arial, Helvetica, sans-serif;
+
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-.layout {
+body {
     display: grid;
-    margin-left: 10vw;
-    margin-right: 10vw;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px auto 250px;
+    grid-template-rows: 100px auto 100px;
     grid-template-areas:
         "header"
         "content"
         "footer";
+
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
 header {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    display: grid;
-    align-items: center;
     grid-area: header;
+
+    display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
-}
 
-header > h1 {
-    margin: 0;
-}
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 
-.band-name-stylized > a {
-    text-decoration: none;
-    color: inherit;
-}
-
-main {
-    grid-area: content;
+    align-items: center;
 }
 
 nav {
@@ -57,124 +72,73 @@ nav {
 }
 
 nav > ul {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
+
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
     text-align: center;
 }
 
 nav > ul > li {
-    height: 100%;
-    width: 100%;
     white-space: nowrap;
-    line-height: 100px; /* quite ugly, must be same as navbar height!! */
-    margin-inline: 10px;
-}
-
-.nav-link {
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    color: orangered;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
-}
-
-.nav-link.current {
-    color: orange;
-}
-
-.members {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 1fr;
-}
-
-
-.members > div > img {
-    width: 100%;
-    height: auto;
 }
 
 .band-name-stylized {
    font-family: CourierPolski_i;
-   white-space: nowrap
+   white-space: nowrap;
 }
 
-ol {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.band-name-stylized > a {
+    text-decoration: none;
+    color: inherit;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    padding-inline: 10px;
+
+    color: var(--tab);
+    text-decoration: none;
 }
 
-input {
-    display: none;
+.nav-link:hover {
+    color: var(--tab-hover);
+    text-decoration: underline;
 }
 
-.album-label {
-    margin: 5px;
-    padding: 20px;
-    margin-top: 0px;
-    background-color: rgb(25, 25, 25);
-    grid-area: label;
-    cursor: pointer;
+.nav-link.current {
+    text-decoration: underline;
 }
 
-.song-list {
-    list-style-type: decimal-leading-zero;
-    list-style-position: inside;
-    margin-bottom: 30px;
-    grid-area: list;
-}
-
-.song-list > li {
-    margin-inline: 5px;
-    margin-block: 5px;
-    padding: 10px;
-}
-
-.album-list > li {
-    display: grid;
-    grid-template-columns: 250px 2fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "cover label"
-      "cover list";
-}
-
-.cover-art {
-    width: calc(100% - 10px);
-    height: auto;
-    margin-bottom: 50px;
-    margin-right: 10px;
-    grid-area: cover;
-}
-
-.album-list li:not(:has(input:checked)) .song-list {
-    display: none;
+main {
+    grid-area: content;
 }
 
 footer {
    grid-area: footer;
-   align-content: end;
+
+   align-content: center;
    text-align: center;
 }
 
 footer a {
-   color: rgb(100, 100, 100);
+   color: var(--footer-link);
 }
+
+
+
+/*
+ * HOME PAGE
+ */
 
 .home-layout {
     display: grid;
@@ -185,24 +149,115 @@ footer a {
 
 .home-text {
     grid-area: home-text;
+
+    margin-left: 100px;
 }
 
 .home-songs {
     grid-area: home-songs;
-    margin: 20px auto;
+
     width: 350px;
+    height: 250px;
+    margin: 50px auto;
+    
     border-collapse: collapse;
 }
 
-tr:nth-child(even) {
-    background-color: rgb(35, 35, 35);
+.home-songs tr > * {
+    border: 1px solid var(--table-border);
+    padding-inline: 10px;
 }
 
-td:nth-child(even) {
+.home-songs thead {
+    text-decoration: underline;
+}
+
+.home-songs tr:nth-child(even) {
+    background-color: var(--bg-contrast);
+}
+
+.home-songs td:nth-child(even) {
     text-align: right;
 }
 
-td, th {
-    border: 2px solid var(--text);
-    border-collapse: collapse;
+
+
+/*
+ * MEMBERS PAGE
+ */
+
+.members {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.members div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.members img {
+    width: 400px;
+    height: auto;
+}
+
+
+
+/*
+ * MUSIC PAGE
+ */
+
+.album-label {
+    grid-area: label;
+
+    margin: 5px;
+    margin-top: 0px;
+    padding: 20px;
+    
+    background-color: var(--bg-contrast);
+    cursor: pointer;
+}
+
+.album-label > input {
+    display: none;
+}
+
+.album-list > li {
+    display: grid;
+    grid-template-columns: 250px 2fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "cover label"
+      "cover list";
+
+    margin-bottom: 50px;
+}
+
+.album-list > li:not(:has(input:checked)) > .song-list {
+    display: none;
+}
+
+.song-list {
+    grid-area: list;
+
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0;
+
+    list-style: decimal-leading-zero inside;
+}
+
+.song-list > li {
+    margin: 5px;
+    padding: 10px;
+}
+
+.cover-art {
+    grid-area: cover;
+
+    width: calc(100% - 10px);
+    height: auto;
+    margin-right: 10px;
 }
